@@ -1,7 +1,8 @@
 @extends('frontend.layout.app')
 
 @push('custom_css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    {{-- <link rel="stylesheet" href="{{ asset('library/jquery-modal/modal.min.css') }}" /> --}}
+    <link rel="stylesheet" href="{{ asset('library/raw-zoom-animated-modal/style.css') }}" />
     <style>
         @media (max-width:1150px) {
             .product {
@@ -26,37 +27,27 @@
 @endpush
 
 @push('custom_js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    {{-- <script src="{{ asset('library/jquery-modal/modal.min.js') }}"></script> --}}
+    <script src="{{ asset('library/raw-zoom-animated-modal/main.js') }}"></script>
     <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".mySwiper", {
-      spaceBetween: 30,
-      effect: "cards",
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-        $(document).ready(function() {
-            $('.nmodal').on('click', function() {
-                $("#fade").modal({
-                    fadeDuration: 100
-                });
-            })
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            effect: "cards",
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
         })
     </script>
 @endpush
 
 @section('content')
-    <div class="mt-[100px] max-sm:mt-[50px] px-[100px] max-lg:px-[60px] max-md:px-[40px] max-sm:px-[20px]">
-        {{-- modal --}}
-        <div id="fade">
-            <h1>Niloy Bussiness man</h1>
-        </div>
+    <div class="mt-[30px] max-sm:mt-[50px] px-[100px] max-lg:px-[60px] max-md:px-[40px] max-sm:px-[20px]">
         {{-- ------header-section----- --}}
         <section class="">
             <div>
@@ -64,31 +55,26 @@
                     আপনার ছোট্ট সোনামণি হাসিখুশি এবং প্রাণবন্ত থাকুক এইটা কে না চাই??
                 </h1>
             </div>
+
             <div class="mt-[20px]">
                 <p class="sm-2 text-center text-[18px] font-[600] text-[black]">
                     আপনার ছোট্ট সোনামণিকে এই রোজা এবং ঈদে খুশি রাখতে এবং ধার্মিক হতে তাইতাই ডট কম নিয়ে এসেছে ছেলে বাবুদের
                     জন্য বিশেষ এক উপহার ।
                 </p>
             </div>
-            <div class="height-[300px] mx-auto mt-[20px] w-[300px]">
-                <p>আমাদের এই উপহার বক্সটিতে কি কি থাকছে তা জানতে নিচের ভিডিওটি দেখুন</p>
-                <div class="fle">
+
+            <div class="height-[300px] mx-auto mt-[20px] flex justify-center">
+                <div class="flex flex-col justify-center items-center">
+                    <p>আমাদের এই উপহার বক্সটিতে কি কি থাকছে তা জানতে নিচের ভিডিওটি দেখুন</p>
                     <div>
                         <iframe
                             src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftaitai.com.babyshop%2Fvideos%2F235836562239107%2F&show_text=false&width=476&t=0"
                             width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                             allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                            allowFullScreen="true"></iframe>
+                            allowFullScreen="true">
+                        </iframe>
                     </div>
-                    {{-- <div>
-                        <iframe
-                            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftaitai.com.babyshop%2Fvideos%2F235836562239107%2F&show_text=false&width=476&t=0"
-                            width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                            allowfullscreen="true"
-                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                            allowFullScreen="true"></iframe>
-                    </div> --}}
                 </div>
 
             </div>
@@ -98,33 +84,7 @@
                     লাগবে।
                 </p>
             </div>
-            <div class="mt-[30px] flex justify-center">
-                <button data-area="order"
-                    class="border-[#000080] nmodal rounded-[5px] border-[2px] px-[15px] py-[10px] text-center text-[16px] font-[600] text-[black] hover:bg-[black] hover:text-[white]">
-                    অর্ডার করতে ক্লিক করুন
-                </button>
-
-            </div>
-            <!-- Swiper -->
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                    </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
+            <x-order-btn />
         </section>
         {{-- ----header-section--end-- --}}
         {{-- ------------why-buy-section---- --}}
@@ -166,12 +126,7 @@
                     </p>
                 </div>
             </div>
-            <div class="order mt-[30px] flex justify-center">
-                <button
-                    class="border-[#000080] rounded-[5px] border-[2px] px-[15px] py-[10px] text-center text-[16px] font-[600] text-[black] hover:bg-[black] hover:text-[white]">এখানে
-                    অর্ডার করুন
-                </button>
-            </div>
+            <x-order-btn />
         </section>
         {{-- ------------why-buy-section-end--- --}}
         {{-- --offer-section--- --}}
@@ -321,12 +276,7 @@
                     সাথে সারা বাংলাদেশ ডেলিভারি চার্জ ফ্রি
                 </P>
             </div>
-            <div class="my-[20px] mt-[30px] flex justify-center">
-                <button
-                    class="border-[#000080] rounded-[5px] border-[2px] px-[15px] py-[10px] text-center text-[16px] font-[600] text-[black] hover:bg-[black] hover:text-[white]">
-                    এখানে অর্ডার করুন
-                </button>
-            </div>
+            <x-order-btn />
         </section>
         {{-- ---price--section-end--- --}}
 
@@ -338,8 +288,8 @@
             </div>
             <div class="mt-6 grid grid-cols-2 max-md:grid-cols-1">
                 <div class="product h-[600px] border-[1px] border-[black] p-2">
-                    <img class="container h-full"
-                        src="http://combo.taitaikids.com/public/storage/product/baby-clothes2.png" alt="">
+                    <img class="container h-full" src="http://combo.taitaikids.com/public/storage/product/baby-clothes2.png"
+                        alt="">
                 </div>
                 <div class="border-[1px] border-[black] p-2">
                     <p class="mb-[2px] text-[18px] font-[500] text-[black]">
@@ -367,12 +317,7 @@
                     </p>
                 </div>
             </div>
-            <div class="mt-[30px] flex justify-center">
-                <button
-                    class="border-[#000080] rounded-[5px] border-[2px] px-[15px] py-[10px] text-center text-[16px] font-[600] text-[black] hover:bg-[black] hover:text-[white]">এখানে
-                    অর্ডার করুন
-                </button>
-            </div>
+            <x-order-btn />
         </section>
 
         {{-- ---customer--review-section--- --}}
@@ -391,32 +336,54 @@
                     ডেলিভারি
                     সার্ভ</span>
             </div>
-            <div class="mt-[30px] flex justify-center">
-                <button
-                    class="border-[#000080] rounded-[5px] border-[2px] px-[15px] py-[10px] text-center text-[16px] font-[600] text-[black] hover:bg-[black] hover:text-[white]">এখানে
-                    অর্ডার করুন
-                </button>
-            </div>
+            <x-order-btn />
         </section>
         {{-- ---customer--review-end-section-- --}}
 
         {{-- -----footer-section---------- --}}
         <section class="mb-[100px]">
-            <div>
-                <h2 class="sm-1 mb-[20px] mt-[100px] max-sm:mt-[50px] text-center text-[25px] font-[600] text-[black]">
-                    কিভাবে অর্ডার করবো?
-                </h2>
+            <div class="text-center">
+                <button class="sm-1 mt-[20px] text-center text-[30px] font-[600] text-[#D92044] underline card_btn">
+                    কিভাবে অর্ডার করবেন দেখাতে ক্লিক করুন
+                </button>
             </div>
-            <div>
-                <p class="sm-2 mb-[20px] mt-[30px] text-[18px] font-[600] tracking-[2px] text-[black]">
-                    আমরা আমাদের এই কম্বো প্যাকেজটিকে তিনটি ক্যাটাগরিতে বিভক্ত করেছি ।যারা ইয়োলো কালার ক্যাপ টাওয়ালে, সরিষা
-                    বালিশ এবং ইউরিন মেট সহ প্যাকেজটিতে হলুদ কালারের কম্বিনেশনে চাচ্ছেন তারা ভাইভ এই অপশনটি সিলেক্ট করুন
-                    । যারা পিংক কালার কম্বিনেশনে কম্বো প্যাকেজটি চাচ্ছেন তারা পিংক ভাইভ এই অপশনটি সিলেক্ট করুন । যারা আকাশী
-                    কালার কম্বিনেশনে কম্বো প্যাকেজটি চাচ্ছেন তারা ব্লু ভাইভ পাবে এই অপশনটি সিলেক্ট করুন।অর্ডার করতে
-                    ক্যাটাগরি সিলেক্ট করে নিচের ফর্মে আপনার নাম, পুর্ণ ঠিকানা এবং মোবাইল নং লিখুন । তারপর নিচে PLACE ORDER
-                    বাটনে ক্লিক করুন ।আপনার অর্ডারটি সঠিকভাবে সম্পন্ন হবে।
+
+            {{-- kivabe order korben (direction in text ) --}}
+            {{-- <div>
+                <div>
+                    <h2 class="sm-1 mb-[20px] mt-[100px] max-sm:mt-[50px] text-center text-[25px] font-[600] text-[black]">
+                        কিভাবে অর্ডার করবেন দেখাতে ক্লিক করুন?
+                    </h2>
+                </div>
+                <div>
+                    <p class="sm-2 mb-[20px] mt-[30px] text-[18px] font-[600] tracking-[2px] text-[black]">
+                        আমরা আমাদের এই কম্বো প্যাকেজটিকে তিনটি ক্যাটাগরিতে বিভক্ত করেছি ।যারা ইয়োলো কালার ক্যাপ টাওয়ালে,
+                        সরিষা
+                        বালিশ এবং ইউরিন মেট সহ প্যাকেজটিতে হলুদ কালারের কম্বিনেশনে চাচ্ছেন তারা ভাইভ এই অপশনটি সিলেক্ট করুন
+                        । যারা পিংক কালার কম্বিনেশনে কম্বো প্যাকেজটি চাচ্ছেন তারা পিংক ভাইভ এই অপশনটি সিলেক্ট করুন । যারা
+                        আকাশী
+                        কালার কম্বিনেশনে কম্বো প্যাকেজটি চাচ্ছেন তারা ব্লু ভাইভ পাবে এই অপশনটি সিলেক্ট করুন।অর্ডার করতে
+                        ক্যাটাগরি সিলেক্ট করে নিচের ফর্মে আপনার নাম, পুর্ণ ঠিকানা এবং মোবাইল নং লিখুন । তারপর নিচে PLACE
+                        ORDER
+                        বাটনে ক্লিক করুন ।আপনার অর্ডারটি সঠিকভাবে সম্পন্ন হবে।
+                    </p>
+                </div>
+            </div> --}}
+            <div id="order_btn">
+                <p class="sm-1 mt-[20px] text-[20px] font-[700]">
+                    কার জন্য নিতে চান ?
                 </p>
+                <div class="mt-[20px] pl-[40px]">
+                    <label class="sm-1 my-[10px] mt-[-8px] text-[20px] font-[700] card_btn">
+                        <input type="radio" name="gender" class="mr-2 h-[20px] w-[20px]" />ছেলে
+                    </label> <br />
+                    <label class="sm-1 mt-[-8px] text-[20px] font-[700] card_btn">
+                        <input type="radio" name="gender" class="mr-2 h-[20px] w-[20px]" />মেয়ে
+                    </label>
+                </div>
+
             </div>
+
             <div id="order">
                 <h2 class="sm-1 text-[30px] text-[#ff4500]">CHOOSE PRODUCT CATEGORY</h2>
                 <div class="mt-[20px] pl-[40px] max-sm:pl-[0px]">
@@ -468,22 +435,65 @@
                     </div>
                 </div>
 
-                <div>
-                    <p class="sm-1 mt-[20px] text-[20px] font-[700]">
-                        ছেলে নাকি মেয়ে চিহ্নিত করুন (optional)
-                    </p>
-                    <div class="mt-[20px] pl-[40px]">
-                        <label class="sm-1 my-[10px] mt-[-8px] text-[20px] font-[700]">
-                            <input type="radio" name="gender" class="mr-2 h-[20px] w-[20px]" />ছেলে
-                        </label> <br />
-                        <label class="sm-1 mt-[-8px] text-[20px] font-[700]">
-                            <input type="radio" name="gender" class="mr-2 h-[20px] w-[20px]" />মেয়ে
-                        </label>
-                    </div>
 
-                </div>
             </div>
         </section>
-        {{-- -----footer-section-end--------- --}}
+        {{-- -----Modal content----- --}}<!--====== The modal for girl product images ======-->
+        {{-- demo modal  --}}
+        {{-- <div class="modal">
+            <div class="modal_wrapper">
+                <div class="modal_content">
+                    <h1>Girl porduct images</h1>
+                </div>
+            </div>
+        </div> --}}
+        {{-- modal for vieo which about kivabe order korben --}}
+        <div class="modal">
+            <div class="modal_wrapper">
+                <div class="modal_content">
+                     <iframe
+                            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftaitai.com.babyshop%2Fvideos%2F235836562239107%2F&show_text=false&width=476&t=0"
+                            width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                            allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            allowFullScreen="true">
+                        </iframe>
+                </div>
+            </div>
+        </div>
+        <!--====== The modal for girl product images ======-->
+        <div class="modal">
+            <div class="modal_wrapper">
+                <div class="modal_content">
+                    <div class="swiper mySwiper md:h-[500px] md:w-[500px] h-[300px] w-[300px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img class="" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="" src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="" src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="" src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== The modal for girl product images ======-->
+        <div class="modal">
+            <div class="modal_wrapper">
+                <div class="modal_content">
+                    <h1>Girl porduct images</h1>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

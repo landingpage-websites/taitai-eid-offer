@@ -1,0 +1,85 @@
+/*
+    * Project Name : 'Open Clicked Modal'
+    * Created by : 'Gulshan Songara'
+*/
+/*--====== Global Variables ======--*/
+:root {
+    --bg-color: #f5f9fc;
+    --grad-color-1: #00d2ff;
+    --grad-color-2: #3a47d5;
+    --gradient: linear-gradient(
+        90deg,
+        var(--grad-color-1) 0%,
+        var(--grad-color-2) 100%
+    );
+    --shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.5);
+}
+
+/*--====== Modal ======--*/
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.2s ease;
+}
+
+/* when Modal has open class */
+.modal.open {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    min-height: calc(100% - 3rem);
+}
+
+@media (max-width: 575.98px) {
+    .modal_wrapper {
+        margin: 0.5rem;
+        min-height: calc(100% - 1rem);
+    }
+}
+
+.modal_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    width: 100vw;
+    max-width: 800px;
+    padding: 4rem;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+/* when Modal is open then modal-content will... */
+.modal.open .modal_content {
+    transform: scale(1);
+}
+
+.modal_body {
+    margin: 2rem 0 3rem;
+}
+
+.close_btn {
+    font-size: 1.2rem;
+}
